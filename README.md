@@ -11,10 +11,9 @@ and the other one when the model is valid. I can do either of them but not both.
 
 I think the problem may be coming from SetValidationErro funtion in the ValidableBindableBase.cs
 
+
 public void SetValidationErrors(IEnumerable<Error> errors, string pname)
         {
-           
-            
             this.errors.Clear();
             foreach (var error in errors)
             {
@@ -34,6 +33,7 @@ public void SetValidationErrors(IEnumerable<Error> errors, string pname)
             }
             
         }
+        
 Problem 2:
 I know the code can be better than this. 
 
