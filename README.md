@@ -11,21 +11,17 @@ and the other one when the model is valid. I can do either of them but not both.
 
 I think the problem may be coming from SetValidationErro funtion in the ValidableBindableBase.cs
 
-// this function
-public void SetValidationErrors(IEnumerable<Error> errors, string pname)
-        {
+```
+public void SetValidationErrors(IEnumerable<Error> errors, string pname){
+        
             this.errors.Clear();
             foreach (var error in errors)
             {
-                
                 this.errors.Add(error.PropertyName, error.ErrorMessage);
             }
-
-            //signal error change for all properties
             var properties = getProperties();
             foreach (var property in properties)
             {
-
                 if (property==pname)
                 {
                     signalErrorChange(property);
@@ -33,7 +29,7 @@ public void SetValidationErrors(IEnumerable<Error> errors, string pname)
             }
             
         }
-        
+```
 Problem 2:
 I know the code can be better than this. 
 
