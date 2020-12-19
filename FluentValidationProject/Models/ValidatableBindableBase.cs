@@ -109,7 +109,11 @@ namespace FluentValidationProject.Models
             properties.Remove("HasErrors"); //remove the HasErrors property, because it is part of the interface INotifyDataErrorInfo and not of the actual model
             return properties;
         }
-
+        /// <summary>
+        /// utility method to convert the FluentValidation ValidationResult to a collection of Error objects
+        /// </summary>
+        /// <param name="validationResult"></param>
+        /// <returns></returns>
         protected IEnumerable<Error> convert(ValidationResult validationResult)
         {
             return validationResult.Errors.Select(e => new Error(e.PropertyName, e.ErrorMessage));
